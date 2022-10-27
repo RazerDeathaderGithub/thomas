@@ -70,6 +70,13 @@ train.Touched:connect(function(p)
 				if p.Parent.Name ~= game.Players.LocalPlayer.Name then
 					game.Players:FindFirstChild(p.Parent.Name).Character:BreakJoints()
 					game.Players:FindFirstChild(p.Parent.Name).Character.Humanoid.Health = 0
+                                        for i, plr in pairs(game.Players:GetChildren()) do
+                                        if plr.Name ~= game.Players.LocalPlayer.Name then
+                                        for i = 1, 10 do
+                                        game.ReplicatedStorage.meleeEvent:FireServer(plr)
+                                        end
+                                        end
+                                        end
 					local Whistle = SFX(475073913)
 					Whistle:Play()
 				end
